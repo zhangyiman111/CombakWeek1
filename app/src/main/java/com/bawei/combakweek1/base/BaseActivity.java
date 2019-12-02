@@ -11,6 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
  *@Time:13:34
  *@Description:
  * */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(layoutId());
+        initView();
+        initData();
+    }
 
+    protected abstract void initData();
+
+    protected abstract void initView();
+
+    protected abstract int layoutId();
 }
